@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akhil Sai Yalavarthi TRIRIGA Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a consultant's dossier. Fixed section index on the left, a 68ch reading column on the right; platform notes set apart as quiet callouts. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #18202b;
+  --muted: #586273;
+  --rule: #dce1e8;
+  --accent: #1d5c8c;
+  --accent-soft: #e5edf5;
+  --display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151b; --surface: #171c24; --ink: #e5e9ef; --muted: #9ba5b4;
+    --rule: #2a323e; --accent: #79abd6; --accent-soft: #1b2939; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #171c24; --ink: #e5e9ef; --muted: #9ba5b4;
+  --rule: #2a323e; --accent: #79abd6; --accent-soft: #1b2939; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 16.5px/1.62 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+.masthead {
+  border-bottom: 1px solid var(--rule); background: var(--surface);
+}
+.masthead-inner {
+  max-width: 1120px; margin: 0 auto; padding: 48px 24px 36px;
+  display: grid; gap: 14px;
+}
+.eyebrow {
+  font: 600 12.5px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+}
+.masthead h1 {
+  margin: 0; font: 600 clamp(30px, 4.6vw, 44px)/1.12 var(--display); text-wrap: balance;
+}
+.masthead .role { margin: 0; font-size: 19px; color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; padding: 0; list-style: none; }
+.facts li {
+  font-size: 13.5px; padding: 5px 11px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--ink);
+}
+
+.layout {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px 80px;
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 56px;
+}
+.index { position: sticky; top: 0; align-self: start; padding-top: 40px; max-height: 100vh; overflow-y: auto; }
+.index p { margin: 0 0 10px; font: 600 12px/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.index ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: sec; }
+.index li { counter-increment: sec; }
+.index a {
+  display: flex; gap: 10px; padding: 6px 8px; border-radius: 6px;
+  color: var(--ink); text-decoration: none; font-size: 14.5px;
+}
+.index a::before { content: counter(sec, decimal-leading-zero); color: var(--muted); font: 400 12.5px/1.9 var(--mono); }
+.index a:hover { background: var(--accent-soft); }
+
+main { min-width: 0; padding-top: 24px; }
+main > * { max-width: 68ch; }
+main h2 {
+  font: 600 27px/1.2 var(--display); text-wrap: balance;
+  margin: 56px 0 16px; padding-top: 22px; border-top: 1px solid var(--rule);
+  scroll-margin-top: 16px;
+}
+main h2:first-child { margin-top: 16px; }
+main h3 { font: 600 18px/1.35 var(--body); margin: 30px 0 8px; text-wrap: balance; }
+main p { margin: 0 0 14px; }
+main ul, main ol { margin: 0 0 16px; padding-left: 22px; }
+main li { margin-bottom: 6px; }
+main li::marker { color: var(--accent); }
+strong { font-weight: 600; }
+code { font: 400 .88em var(--mono); background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+
+.context {
+  background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--accent);
+  border-radius: 6px; padding: 12px 16px; font-size: 15px; color: var(--muted);
+}
+.context-label {
+  display: block; margin-bottom: 4px; font: 600 11.5px/1.4 var(--body);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+}
+
+.table-wrap { max-width: 100%; overflow-x: auto; margin: 6px 0 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
+main .table-wrap { max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; background: var(--accent-soft); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; min-width: 160px; }
+
+.diagram { margin: 8px 0 20px; max-width: 100%; }
+.diagram-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 8px; }
+.diagram svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--body); }
+.diagram figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
+.dg-title { fill: var(--ink); font-size: 15px; font-weight: 600; }
+.dg-sub, .dg-mech { fill: var(--muted); font-size: 11.5px; }
+.dg-hdr { fill: var(--muted); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; }
+.dg-name { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.dg-data { fill: var(--ink); font-size: 11.5px; }
+.dg-core-name { fill: var(--ink); font-size: 15px; font-weight: 600; }
+.dg-box { fill: none; stroke: var(--rule); stroke-width: 1.25; }
+.dg-core { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.dg-line { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+.dg-head { fill: var(--muted); }
+
+footer { max-width: 1120px; margin: 0 auto; padding: 24px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 13.5px; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 16px 64px; }
+  .masthead-inner { padding: 36px 16px 28px; }
+  .index { position: static; max-height: none; padding-top: 20px; }
+  .index ol { display: flex; flex-wrap: wrap; gap: 6px; }
+  .index a { border: 1px solid var(--rule); padding: 4px 10px; font-size: 13.5px; }
+  .index a::before { display: none; }
+  main h2 { font-size: 23px; margin-top: 44px; }
+}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow">Professional experience</div>
+    <h1>Akhil Sai Yalavarthi</h1>
+    <p class="role">IBM TRIRIGA Functional &amp; Technical Consultant</p>
+    <ul class="facts" aria-label="Summary">
+      <li>8 years in IWMS</li>
+      <li>7 years building on TRIRIGA in Java and JavaScript</li>
+      <li>Banking and healthcare portfolios</li>
+      <li>TRIRIGA 10.6 to 11.6</li>
+      <li>Planning a move to Maximo Real Estate and Facilities on MAS 9.1</li>
+    </ul>
+  </div>
+</header>
+<div class="layout">
+  <nav class="index" aria-label="Sections">
+    <p>Contents</p>
+    <ol>
+<li><a href="#profile-at-a-glance">Profile</a></li>
+<li><a href="#fit-to-the-role">Role fit</a></li>
+<li><a href="#how-i-work-with-the-tririga-platform">Platform</a></li>
+<li><a href="#functional-depth">Functional depth</a></li>
+<li><a href="#truist-bank-branch-and-office-real-estate-on-tririga">Truist Bank</a></li>
+<li><a href="#elevance-health-office-leases-hybrid-space-and-lease-accounting-on-tririga">Elevance Health</a></li>
+<li><a href="#citi-bank-global-branch-lease-accounting-on-tririga">Citi Bank</a></li>
+<li><a href="#medtrust-iwms-foundation-on-archibus">MedTrust</a></li>
+<li><a href="#problem-solving-case-studies">Case studies</a></li>
+<li><a href="#integration-landscape">Integrations</a></li>
+<li><a href="#how-i-deliver">Delivery</a></li>
+<li><a href="#technical-skills-and-education">Skills and education</a></li>
+<li><a href="#basis-of-this-document">Basis</a></li>
+    </ol>
+  </nav>
+  <main>
+<h2 id="profile-at-a-glance">Profile at a glance</h2>
+<p>I am an IBM TRIRIGA functional and technical consultant with eight years in IWMS and facilities systems, seven of them building on TRIRIGA with Java and JavaScript, for banking and healthcare real estate portfolios.</p>
+<p>I work both sides of an engagement. I sit with corporate real estate, lease administration, finance, and facilities teams to agree how a process should run. Then I build it: business objects in Data Modeler, forms in GUI Builder, queries in Report Manager, workflows in Workflow Builder, and Java custom tasks or UX Framework apps where standard tooling stops. I also carry it through OMM packaging, SIT, UAT, and production support.</p>
+<p>My TRIRIGA work spans versions 10.6 through 11.6. I am currently planning a bank's move from TRIRIGA 11.6 to IBM Maximo Real Estate and Facilities on Maximo Application Suite (MAS) 9.1.</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Client</th>
+<th>Period</th>
+<th>Role</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Truist Bank, Dallas, TX</td>
+<td>Oct 2025 – present</td>
+<td>Senior Software Consultant</td>
+<td>Branch and office real estate on TRIRIGA 11.6; Maximo Manage and SAP S/4HANA integration; MAS 9.1 transition planning</td>
+</tr>
+<tr class="even">
+<td>Elevance Health, Dallas, TX</td>
+<td>Sep 2024 – Oct 2025</td>
+<td>Senior Software Consultant</td>
+<td>TRIRIGA 11.5 implementation (leases, hybrid space, ASC 842); upgrade to 11.6; Workday and general ledger integration</td>
+</tr>
+<tr class="odd">
+<td>Citi Bank, Hyderabad, India</td>
+<td>Aug 2019 – Jul 2024</td>
+<td>Software Consultant</td>
+<td>Global ASC 842 / IFRS 16 lease accounting; upgrade from 10.6 to 11.x; DataConnect lease loads; SOAP ledger integration</td>
+</tr>
+<tr class="even">
+<td>MedTrust, Hyderabad, India</td>
+<td>Aug 2018 – Jul 2019</td>
+<td>Software Consultant</td>
+<td>Archibus space and maintenance data; AutoCAD floor plans</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Modules:</strong> TRIRIGA Real Estate, Lease Management, Lease Accounting, Space Management, Facilities Management.</p>
+<p><strong>Builder tools:</strong> Data Modeler, GUI Builder, Workflow Builder, Report Manager, Object Migration Manager (OMM), TRIRIGA UX Framework.</p>
+<p><strong>Integration:</strong> TRIRIGA Integration Object, DataConnect, Data Integrator, OSLC REST API, SOAP web services, with SAP S/4HANA, Workday, IBM Maximo Manage, and general ledger systems.</p>
+<p><strong>Data:</strong> SQL on Oracle Database and Microsoft SQL Server TRIRIGA schemas.</p>
+<h2 id="fit-to-the-role">Fit to the role</h2>
+<p>Each requirement in the IBM TRIRIGA Functional &amp; Technical Consultant description (Bay Area, CA) maps to work I have delivered on a live TRIRIGA portfolio.</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>What the role asks for</th>
+<th>Where I have done it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Functional and technical TRIRIGA delivery</td>
+<td>Functional and technical lead for Elevance Health's TRIRIGA 11.5 implementation; owner of functional and technical delivery for Truist's branch and office portfolio</td>
+</tr>
+<tr class="even">
+<td>Real Estate, Lease Management, Space Management, Facilities Management</td>
+<td>All four at Truist; Lease Management, Space Management, and Lease Accounting at Elevance; Real Estate and Lease Accounting at Citi</td>
+</tr>
+<tr class="odd">
+<td>Business objects, data models, forms, queries, workflows</td>
+<td>Data Modeler and GUI Builder extensions for branch attributes (Truist) and country tax and currency fields (Citi); Report Manager queries for expirations, occupancy, and vacancy; Workflow Builder approvals, critical-date notices, and escalations</td>
+</tr>
+<tr class="even">
+<td>Configuration and customization</td>
+<td>Extensions kept inside base object families so upgrades preserve them; Java custom tasks where standard workflow tasks stop; UX Framework apps for mobile and vendor-facing tasks</td>
+</tr>
+<tr class="odd">
+<td>REST/SOAP APIs and system integrations</td>
+<td>OSLC REST for a bank workplace app; REST to a general ledger; SOAP web services to a bank ledger; Integration Object to SAP S/4HANA; Maximo Manage work orders; Workday people and organization data</td>
+</tr>
+<tr class="even">
+<td>SQL, Java, JavaScript</td>
+<td>SQL on Oracle and SQL Server TRIRIGA schemas; Java custom tasks for lease escalation calculations, discount-rate lookups, and Workday loads; JavaScript UX apps and views</td>
+</tr>
+<tr class="odd">
+<td>Data migration, testing, troubleshooting, production support</td>
+<td>DataConnect and Data Integrator lease and space loads with SQL validation; SIT and UAT with business users; ServiceNow incidents and stuck-record recovery</td>
+</tr>
+<tr class="even">
+<td>Requirements to technical solutions</td>
+<td>Requirements gathered with corporate real estate, lease administration, finance, and facilities, turned into designs for objects, workflows, and integrations</td>
+</tr>
+<tr class="odd">
+<td>IWMS</td>
+<td>Eight years, starting with a year on Archibus before TRIRIGA</td>
+</tr>
+</tbody>
+</table></div>
+<p>Beyond the listed requirements, I bring ASC 842 / IFRS 16 lease accounting delivery at two enterprises and current planning for the TRIRIGA-to-Maximo transition. IBM names Maximo Real Estate and Facilities 9.x the upgrade path for TRIRIGA, with TRIRIGA standard support ending September 30, 2027, so Bay Area TRIRIGA clients are likely to face that decision within the next two years.</p>
+<h2 id="how-i-work-with-the-tririga-platform">How I work with the TRIRIGA platform</h2>
+<p>I treat a TRIRIGA change as a set of layers that move together: the data model, the forms over it, the state lifecycle and workflows that move records, the queries that read them, and the packages and integrations that carry them out of the system. Lines marked <em>Platform context</em> describe how TRIRIGA itself behaves; everything in first person is my own work.</p>
+<h3 id="data-model-data-modeler">Data model: Data Modeler</h3>
+<p>I extend delivered business objects rather than cloning them. At Truist, branch attributes such as ATM count, drive-through lanes, and vault rooms went onto the base object families, so upgrades did not overwrite them. At Citi I added country-specific fields such as local tax and currency the same way.</p>
+<p>Each business object also carries a state transition family that defines which actions are valid from which state. A missing transition stays invisible until a workflow tries to use it, which is the fault I traced at Elevance (case study 4).</p>
+<h3 id="forms-and-user-experience-gui-builder-and-ux-framework">Forms and user experience: GUI Builder and UX Framework</h3>
+<p>Most lease and space administration still happens in classic forms, which I extend in GUI Builder with tabs, sections, and query sections that pull related records. For tasks done on a phone or by people outside the core team, I build TRIRIGA UX Framework apps instead: mobile facilities requests for Truist branch staff, space request views for Elevance employees, and lease review screens for Citi's abstraction vendors.</p>
+<p class="context"><span class="context-label">Platform context</span> the UX Framework separates the model (data sources that read and write records) from the view (web components in the browser). Polymer is its long-standing view layer, and Platform 5.0 also supports standard web frameworks such as React, Vue, and Angular.</p>
+<h3 id="business-logic-workflow-builder">Business logic: Workflow Builder</h3>
+<p>Workflows carry the business rules I configure: lease approvals, payment approvals, critical-date notices, escalations to regional managers, and integration triggers. I design each one around the record's state, so it starts on a defined action and leaves the record in a known state. I also mentor junior developers on Workflow Builder debugging and review their workflows before promotion.</p>
+<p class="context"><span class="context-label">Platform context</span> synchronous workflows run inside the user's action, while asynchronous workflows run through the workflow agent, which is where stuck records surface after a release. Workflow instance recording shows the step-by-step path a workflow took; IBM advises against using it in production because of its load and database growth.</p>
+<h3 id="custom-code-java-custom-tasks">Custom code: Java custom tasks</h3>
+<p>Where standard workflow tasks cannot express the logic, I write Java custom tasks called from Workflow Builder steps: lease escalation calculations at Truist, ASC 842 / IFRS 16 discount-rate lookups by country and lease term at Citi, and a nightly Workday people and organization load at Elevance. Custom Java is code every future upgrade has to carry, so at Truist any request that needed it went to design review first.</p>
+<p class="context"><span class="context-label">Platform context</span> the platform loads custom classes through a ClassLoader record, and a workflow Custom task calls them as <code>ClassLoaderName:ClassName</code>. Custom packages must sit under <code>com.tririga.custom</code>, <code>com.tririga.ps</code>, or <code>com.tririga.appdev</code>.</p>
+<h3 id="queries-and-reports-report-manager">Queries and reports: Report Manager</h3>
+<p>One query can feed a report, a form query section, a workflow Query task, and an integration, so a badly scoped query hurts more than one screen. I build portfolio reports such as lease expirations, occupancy by building, and vacant space, and I keep form queries filtered to the record in context. The Truist space allocation slowdown (case study 2) came from a query that loaded every space in a building instead of the selected floor.</p>
+<h3 id="security-security-manager">Security: Security Manager</h3>
+<p>At Elevance I defined security groups so regional managers saw only their offices' leases and finance saw lease accounting records, as agreed with the privacy office.</p>
+<p class="context"><span class="context-label">Platform context</span> security groups grant access by module, business object, tab, section, and report, and can restrict records by organization and geography.</p>
+<h3 id="release-management-object-migration-manager">Release management: Object Migration Manager</h3>
+<p>At Truist I keep one OMM package per release with its business objects, forms, queries, and workflows, so missing dependencies show up in test rather than production. At Citi I used OMM to carry the 10.6 to 11.x upgrade through each environment.</p>
+<p class="context"><span class="context-label">Platform context</span> selecting an object for an OMM export does not automatically include its dependents, so a package assembled from memory tends to fail in the next environment.</p>
+<h3 id="data-loading-dataconnect-and-data-integrator">Data loading: DataConnect and Data Integrator</h3>
+<p>I have loaded abstracted leases through DataConnect at Citi, and leases, buildings, floors, and spaces through Data Integrator at Elevance. In both cases bad rows were stopped before they became records and sent back to the people who owned the source data.</p>
+<p class="context"><span class="context-label">Platform context</span> DataConnect writes external data into staging tables, and workflows then process staged rows into TRIRIGA records. Data Integrator imports tab-delimited files directly into business objects, and hierarchical records need their parent's full path to land in the right place.</p>
+<h2 id="functional-depth">Functional depth</h2>
+<p>On the functional side, my work follows a lease from abstraction to the general ledger, and a building from its CAD drawing to an occupancy report.</p>
+<h3 id="real-estate-portfolio">Real estate portfolio</h3>
+<p>The portfolio hierarchy is what every lease, space, and request hangs from, so I get it right first. At Citi I configured TRIRIGA Real Estate records for owned and leased branches, linking each lease to its building, cost center, region, and landlord. At Truist the branch record carries bank-specific attributes I added: ATM count, drive-through lanes, and vault rooms.</p>
+<h3 id="lease-administration">Lease administration</h3>
+<p>A lease record has to be the single place where terms live. At Truist I configured Lease Management so each branch or office lease holds its payment schedules, critical dates, renewal options, and landlord contacts in one record; critical dates now come from the lease rather than calendars kept by each office. At Citi and Truist I built critical-date and option workflows that escalate to regional managers before deadlines. At Elevance I worked with finance and real estate to agree classification rules before configuration, including how renewal options count toward the lease term.</p>
+<p class="context"><span class="context-label">Platform context</span> TRIRIGA Real Estate Manager documents a contract's clauses, options, and terms, then manages scheduled, one-time, and pass-through payments and payment adjustments.</p>
+<h3 id="lease-accounting-asc-842-and-ifrs-16">Lease accounting: ASC 842 and IFRS 16</h3>
+<p>I have configured TRIRIGA Lease Accounting at two enterprises. At Citi I set up classification, discount rates, and amortization for branch and office leases under both ASC 842 and IFRS 16, wrote Java custom tasks for discount-rate lookups by country and lease term, and posted monthly journals to the bank's ledger. At Elevance I configured ASC 842 classification, amortization schedules, and journal entries, and tested new leases, modifications, and terminations with finance in UAT.</p>
+<p>The inputs that drive every schedule are the ones I check hardest: commencement date, lease term (including which renewal options count), discount rate, and payment schedule. A wrong commencement date or a rate taken from the wrong date shifts every period after it, which is what case studies 3 and 5 show.</p>
+<p class="context"><span class="context-label">Platform context</span> ASC 842 keeps operating and finance classes for lessees, and the lease liability is discounted at the rate for the lease at commencement. IFRS 16 has a single lessee model, so TRIRIGA generates a finance-lease schedule when IFRS is the selected standard.</p>
+<h3 id="space-management">Space management</h3>
+<p>At Truist I configured floors, spaces, and allocations from AutoCAD drawings published through TRIRIGA CAD Integrator/Publisher, so space planners see occupancy by business line without walking the floors. At Elevance I configured Space Management for hybrid work, adding shared-seat allocations and occupancy measures by department; facilities used those measures to consolidate underused floors. I also loaded people and organization data from Workday nightly, so allocations followed department changes and departed employees freed their seats on the next load.</p>
+<p class="context"><span class="context-label">Platform context</span> CAD Integrator/Publisher attaches drawing boundaries to TRIRIGA records and publishes graphics for the form's Graphics section. A space allocation links a space to one or more organizations; a space assignment links a person or asset to a space.</p>
+<h3 id="facilities-requests-and-maintenance">Facilities requests and maintenance</h3>
+<p>At Truist I replaced the classic form for branch facilities requests with a UX Framework app that branch staff use from their phones, and connected those requests to IBM Maximo Manage work orders so maintenance reaches technicians without rekeying. At MedTrust I scheduled preventive maintenance for medical equipment rooms in Archibus.</p>
+<p class="context"><span class="context-label">Platform context</span> in TRIRIGA service management, requests submitted through Request Central are routed for approval and then become work for a service provider.</p>
+<h3 id="approvals-financial-integration-and-reporting">Approvals, financial integration, and reporting</h3>
+<p>Approvals and notices are where real estate decisions get made on time. At Truist each renewal notice names the lease, the option date, and the manager who owns the decision. Approved payments go to SAP S/4HANA accounts payable with cost center and lease references; at Elevance, finance reconciled posted journal entries to the lease schedule, and at Citi I reconciled lease counts and liabilities between TRIRIGA and the general ledger for each region before each close. On the reporting side, my lease expiration, occupancy, and vacancy reports are used by Truist's corporate real estate leadership each month and by Elevance's regional managers before each quarterly portfolio review.</p>
+<h2 id="truist-bank-branch-and-office-real-estate-on-tririga">Truist Bank: branch and office real estate on TRIRIGA</h2>
+<p><strong>Senior Software Consultant, Dallas, TX · Oct 2025 – present</strong></p>
+<p>At Truist I own functional and technical delivery of IBM TRIRIGA for the bank's branch and office portfolio, covering real estate records, leases, space, and facilities requests, and I am planning the platform's move to Maximo Real Estate and Facilities.</p>
+<h3 id="business-need">Business need</h3>
+<p>Before this work, critical dates lived in calendars kept by each regional office, accounts payable keyed lease invoices by hand, and branch maintenance requests were rekeyed before reaching technicians. Space planners walked floors to see occupancy, and the bank's workplace app team needed TRIRIGA data without querying its database directly.</p>
+<h3 id="approach">Approach</h3>
+<p>I gather requirements from corporate real estate, lease administration, and facilities, and turn each into a design for a business object, workflow, or integration. Corporate real estate signs each design before configuration starts, and anything that needs custom Java goes to design review first. Every release ships as one OMM package containing its business objects, forms, queries, and workflows.</p>
+<h3 id="what-i-configured-and-built">What I configured and built</h3>
+<p><strong>Lease Management.</strong> One record per branch or office lease holds payment schedules, critical dates, renewal options, and landlord contacts. Workflow Builder workflows route lease approvals and send critical-date notices that reach regional real estate managers before option deadlines; each notice names the lease, the option date, and the manager who owns the decision. Java custom tasks handle lease escalation calculations that standard workflow tasks could not.</p>
+<p><strong>Space Management.</strong> Floors, spaces, and allocations come from AutoCAD drawings published through TRIRIGA CAD Integrator/Publisher, giving space planners occupancy by business line.</p>
+<p><strong>Facilities Management.</strong> Branch staff submit facilities requests from their phones through a TRIRIGA UX Framework app I built in JavaScript, which replaced the classic form for that task. Requests flow to IBM Maximo Manage work orders, so maintenance reaches technicians without rekeying.</p>
+<p><strong>Data model and forms.</strong> I extended business objects in Data Modeler and forms in GUI Builder for branch attributes such as ATM count, drive-through lanes, and vault rooms, keeping every change inside the base object families so upgrades leave it intact.</p>
+<p><strong>Reporting.</strong> Report Manager queries and reports cover lease expirations, occupancy by building, and vacant space; corporate real estate leadership uses them each month.</p>
+<h3 id="integrations">Integrations</h3>
+<ul>
+<li><strong>SAP S/4HANA accounts payable:</strong> a TRIRIGA Integration Object posts approved lease payments with cost center and lease references, so accounts payable no longer keys lease invoices.</li>
+<li><strong>Workplace app:</strong> space and work task data published through the OSLC REST API as JSON, returning only the fields each screen needs from one endpoint.</li>
+<li><strong>IBM Maximo Manage:</strong> facilities requests raised in TRIRIGA become work orders for technicians.</li>
+</ul>
+<p class="context"><span class="context-label">Platform context</span> TRIRIGA's OSLC REST API exposes configured resources through query capabilities and creation factories, so consumer applications read or create records over HTTP rather than through the database.</p>
+<h3 id="planning-the-move-to-maximo-real-estate-and-facilities">Planning the move to Maximo Real Estate and Facilities</h3>
+<p>With the Maximo platform team, I am planning the move from TRIRIGA 11.6 to IBM Maximo Real Estate and Facilities on Maximo Application Suite (MAS) 9.1. Every customization is marked keep, replace with standard, or retire before any upgrade configuration is frozen. The same lens shaped a design decision: I evaluated a custom lease object against the standard lease form and kept the standard form, because a custom object would block the MAS upgrade.</p>
+<p class="context"><span class="context-label">Platform context</span> MAS 9.1 brought TRIRIGA into the Maximo family as Maximo Real Estate and Facilities; IBM says existing data and configurations can move to MAS, though integrations and setup change for the new architecture.</p>
+<h3 id="quality-and-production-support">Quality and production support</h3>
+<p>Before each release I run SQL against the Oracle Database TRIRIGA schema to find orphaned leases and duplicate space assignments. I test releases in SIT and UAT with corporate real estate users and log defects in Jira with the record, workflow, and expected result. After each release I monitor workflow and integration failures, handle incidents in ServiceNow, and recover stuck records with corrected data. I also mentor junior TRIRIGA developers on Workflow Builder debugging and OMM packaging, reviewing their workflows before promotion.</p>
+<h3 id="challenges-resolved">Challenges resolved</h3>
+<ul>
+<li>Lease payments posting twice in SAP, traced to an integration retry (case study 1).</li>
+<li>Slow space allocation forms, traced to an over-broad query association (case study 2).</li>
+</ul>
+<h3 id="outcomes">Outcomes</h3>
+<ul>
+<li>Critical dates come from the lease record rather than regional calendars.</li>
+<li>Accounts payable stopped keying lease invoices by hand.</li>
+<li>Branch maintenance reaches facilities technicians without rekeying.</li>
+<li>Space planners see occupancy by business line without walking floors.</li>
+<li>The workplace app team calls one endpoint instead of querying the TRIRIGA database.</li>
+<li>Missing OMM dependencies are caught in test, not production.</li>
+</ul>
+<h2 id="elevance-health-office-leases-hybrid-space-and-lease-accounting-on-tririga">Elevance Health: office leases, hybrid space, and lease accounting on TRIRIGA</h2>
+<p><strong>Senior Software Consultant, Dallas, TX · Sep 2024 – Oct 2025</strong></p>
+<p>At Elevance I was functional and technical lead for implementing IBM TRIRIGA 11.5 across the health plan's office portfolio, covering lease management, space management, and ASC 842 lease accounting, and I then upgraded the system to 11.6.</p>
+<h3 id="business-need-1">Business need</h3>
+<p>Lease data sat in spreadsheets kept by each region, and lease accounting ran on a spreadsheet model. Hybrid work meant space had to be measured and shared differently, and allocations needed to keep up with department changes.</p>
+<h3 id="approach-1">Approach</h3>
+<p>I started with policy before configuration. With finance and real estate, I agreed lease classification rules, including how renewal options count toward lease terms. I also evaluated a separate lease accounting tool against TRIRIGA Lease Accounting and chose TRIRIGA, so leases and their schedules live in one system.</p>
+<h3 id="what-i-configured-and-built-1">What I configured and built</h3>
+<p><strong>Lease accounting.</strong> I configured TRIRIGA Lease Accounting for ASC 842 classification, amortization schedules, and journal entries. Finance reviewed each schedule against the prior spreadsheet model, and we ran UAT across new leases, modifications, and terminations, holding go-live until schedules matched. The spreadsheet model retired after a quarter of matching results.</p>
+<p><strong>Hybrid space.</strong> I configured Space Management with shared-seat allocations and occupancy measures by department, which facilities used to consolidate underused floors. Employees book project space through TRIRIGA UX Framework views I built in JavaScript, and each request routes to the office's space coordinator.</p>
+<p><strong>Security.</strong> I defined security groups so regional managers see only their offices' leases and finance sees lease accounting records, as agreed with the privacy office.</p>
+<p><strong>Reporting.</strong> I wrote lease expiration and occupancy queries by office for regional real estate managers, scheduled ahead of each quarterly portfolio review.</p>
+<h3 id="data-migration">Data migration</h3>
+<p>I loaded leases, buildings, floors, and spaces through Data Integrator files, validating each batch with SQL on Microsoft SQL Server before workflows processed it. Rejected rows went back to regional coordinators with the failing field and the lease number, so the people who owned the data fixed it at the source.</p>
+<h3 id="integrations-1">Integrations</h3>
+<ul>
+<li><strong>General ledger:</strong> lease journal entries posted through the ledger's REST APIs; finance reconciled posted entries to the lease schedule, and unmatched entries went back to lease accounting with the lease number.</li>
+<li><strong>Workday:</strong> Java custom tasks load people and organization data nightly, so space allocations follow department changes and departed employees free their seats on the next load.</li>
+</ul>
+<h3 id="upgrade-from-11.5-to-11.6">Upgrade from 11.5 to 11.6</h3>
+<p>I ran the upgrade in a cloned environment, retesting custom forms, workflows, and integrations before production. Deprecated classic forms were rebuilt as UX views during the upgrade.</p>
+<p class="context"><span class="context-label">Platform context</span> TRIRIGA 11.6 pairs with Application Platform 5.0, while 11.5 runs on Platform 4.5, so the move changes the platform layer as well as the application.</p>
+<h3 id="handover-and-support">Handover and support</h3>
+<p>I documented configuration, integrations, and support steps in Confluence for the facilities systems team after hypercare. I trained regional coordinators on lease entry, critical dates, and space updates with a short guide for each task, and I handled production support for failed Data Integrator loads and integration errors, fixing source data with the regional coordinators.</p>
+<h3 id="challenges-resolved-1">Challenges resolved</h3>
+<ul>
+<li>Amortization schedules that did not match finance's model, traced to migrated commencement dates (case study 3).</li>
+<li>Lease approvals stuck in queue, traced to a missing state transition (case study 4).</li>
+</ul>
+<h3 id="outcomes-1">Outcomes</h3>
+<ul>
+<li>Lease data moved off regional spreadsheets into TRIRIGA.</li>
+<li>The spreadsheet lease accounting model retired after a quarter of matching results.</li>
+<li>Facilities consolidated underused floors using the new occupancy measures.</li>
+<li>Schedules matched finance's model before the first close.</li>
+</ul>
+<h2 id="citi-bank-global-branch-lease-accounting-on-tririga">Citi Bank: global branch lease accounting on TRIRIGA</h2>
+<p><strong>Software Consultant, Hyderabad, India · Aug 2019 – Jul 2024</strong></p>
+<p>Over five years at Citi I maintained IBM TRIRIGA for the bank's branch and office leases across regions, implemented ASC 842 and IFRS 16 lease accounting in TRIRIGA Lease Accounting, and upgraded the application from 10.6 to 11.x.</p>
+<h3 id="business-need-2">Business need</h3>
+<p>The portfolio spanned countries reporting under US GAAP and IFRS, each with its own tax and currency rules. Option deadlines depended on regional spreadsheets, lease data arrived from external abstraction vendors, and monthly lease journals had to reach the bank's ledger with the right country and cost center segments.</p>
+<h3 id="approach-2">Approach</h3>
+<p>Regional real estate teams raised changes through a single intake queue, and fixes shipped in monthly releases. Each release was tested with regional real estate and finance users, with results and defects in Jira.</p>
+<h3 id="what-i-configured-and-built-2">What I configured and built</h3>
+<p><strong>Real estate portfolio.</strong> I configured TRIRIGA Real Estate records for owned and leased branches, linking each lease to its building, cost center, region, and landlord.</p>
+<p><strong>Lease accounting.</strong> I configured classification, discount rates, and amortization for branch and office leases under ASC 842 and IFRS 16. Discount rates depend on country and lease term, so I wrote Java custom tasks for those lookups and called them from the lease accounting workflows. Regional finance teams signed off schedules country by country before go-live.</p>
+<p><strong>Country-specific data.</strong> I extended lease forms in GUI Builder and business objects in Data Modeler for fields such as local tax and currency.</p>
+<p><strong>Workflows.</strong> Workflow Builder workflows handle lease critical dates and payment approvals, escalating to regional managers as options near expiry, so option deadlines no longer depend on regional spreadsheets.</p>
+<p><strong>Vendor-facing UX.</strong> I built TRIRIGA UX Framework lease review screens in JavaScript that show abstraction vendors which lease fields are missing before each load, so they correct fields on screen instead of resubmitting batches.</p>
+<h3 id="data-migration-and-reconciliation">Data migration and reconciliation</h3>
+<p>During the lease accounting rollout I loaded abstracted leases through DataConnect staging tables, rejecting rows with missing commencement dates or rates; vendors corrected rejected rows before the next batch. Before each close I wrote SQL on Oracle Database to reconcile lease counts and liabilities between TRIRIGA and the general ledger for each region, sending differences to regional finance with lease numbers.</p>
+<h3 id="integration">Integration</h3>
+<p>TRIRIGA posts monthly lease journals to the bank's ledger through SOAP web services, carrying country and cost center segments.</p>
+<h3 id="upgrade-from-10.6-to-11.x">Upgrade from 10.6 to 11.x</h3>
+<p>I upgraded TRIRIGA from 10.6 to 11.x with Object Migration Manager, retesting custom workflows and reports in each environment. Custom workflows that broke under 11.x were rebuilt before the production upgrade.</p>
+<p class="context"><span class="context-label">Platform context</span> the 11.0 release moved to Application Platform 4.0, from Platform 3.6 under 10.6, so a 10.6 to 11.x upgrade crosses a major platform version.</p>
+<h3 id="production-support-and-mentoring">Production support and mentoring</h3>
+<p>I handled production support in ServiceNow for workflow failures and data issues, fixing repeat causes in monthly releases and sending recurring data errors back to abstraction vendors with examples. I mentored new analysts on the TRIRIGA data model, workflows, and lease accounting checks, pairing with them on their first releases and release checklists.</p>
+<h3 id="challenges-resolved-2">Challenges resolved</h3>
+<ul>
+<li>Wrong right-of-use asset values, traced to discount rates applied by the wrong date (case study 5).</li>
+<li>Custom workflows broken by the 11.x upgrade (case study 6).</li>
+</ul>
+<h3 id="outcomes-2">Outcomes</h3>
+<ul>
+<li>Regional finance signed off lease accounting schedules by country before go-live.</li>
+<li>Option deadlines moved from regional spreadsheets into TRIRIGA workflows.</li>
+<li>Vendors fixed missing lease fields on screen instead of resubmitting batches.</li>
+<li>Ledger differences reached regional finance with lease numbers before each close.</li>
+</ul>
+<h2 id="medtrust-iwms-foundation-on-archibus">MedTrust: IWMS foundation on Archibus</h2>
+<p><strong>Software Consultant, Hyderabad, India · Aug 2018 – Jul 2019</strong></p>
+<p>My IWMS work began at MedTrust, where I supported a senior consultant on Archibus space and maintenance data for a hospital group's clinical and office facilities.</p>
+<p>I kept rooms, departments, and occupancy current after each move, maintained AutoCAD floor plans linked to Archibus space records, and checked updated plans against the space survey before publishing. I wrote SQL on Microsoft SQL Server to check room and department counts against the survey, scheduled preventive maintenance for medical equipment rooms with the facilities supervisor, and reconciled maintenance work requests with completed work each month. I also loaded department chargeback data for space costs, checking totals with the finance office before each quarterly cycle, and agreed room use codes with clinical departments before each survey.</p>
+<p>One problem from this period shaped how I approach allocations: occupancy reports double-counted shared rooms because those rooms were assigned to two departments at full share. Splitting the room percentage between departments fixed the totals. The same discipline of drawings reconciled to space records, shares that sum correctly, and SQL checks before release carried directly into my TRIRIGA space work.</p>
+<h2 id="problem-solving-case-studies">Problem-solving case studies</h2>
+<p>These seven problems from my engagements show how I trace TRIRIGA issues to a root cause. Each problem, cause, and fix is from the project; the <em>Why it happens</em> notes explain the platform mechanics behind them.</p>
+<h3 id="lease-payments-posting-twice-in-sap-truist-integration">1. Lease payments posting twice in SAP (Truist, integration)</h3>
+<p><strong>Problem.</strong> Approved lease payments were posting twice in SAP S/4HANA accounts payable.</p>
+<p><strong>Cause.</strong> The integration's retry resent records that SAP had already acknowledged.</p>
+<p><strong>Fix.</strong> I added a sent-flag check on the TRIRIGA Integration Object, so a retry only sends records not yet acknowledged. The duplicates stopped for every landlord.</p>
+<p><strong>Why it happens.</strong> An outbound integration selects records by query. Unless each record carries a sent or acknowledged marker that the query filters on, a retry cannot tell delivered payments from new ones.</p>
+<h3 id="slow-space-allocation-forms-truist-performance">2. Slow space allocation forms (Truist, performance)</h3>
+<p><strong>Problem.</strong> Space allocation forms were slow to open.</p>
+<p><strong>Cause.</strong> A query association pulled every space in the building when the form loaded.</p>
+<p><strong>Fix.</strong> I filtered the query to the selected floor, and the form returned to normal response.</p>
+<p><strong>Why it happens.</strong> Form query sections run as the form loads, so a query scoped to the building grows with the building rather than with the task. IBM's own guidance treats any query over 1,000 milliseconds as too long, a useful bar for form queries.</p>
+<h3 id="amortization-schedules-out-of-line-with-finance-elevance-data-migration">3. Amortization schedules out of line with finance (Elevance, data migration)</h3>
+<p><strong>Problem.</strong> Lease amortization schedules for migrated leases did not match finance's model.</p>
+<p><strong>Cause.</strong> Leases had been migrated with commencement dates in the wrong format.</p>
+<p><strong>Fix.</strong> I corrected the dates and recalculated the schedules, which then matched finance's model before the first close.</p>
+<p><strong>Why it happens.</strong> The commencement date anchors the lease term, the discount rate, and the first period of every schedule. A date in the wrong format can still load as a valid date, so the error shows up only when schedules are compared side by side, which is why finance reviewed each schedule against the prior model.</p>
+<h3 id="lease-approvals-stuck-in-queue-elevance-workflow">4. Lease approvals stuck in queue (Elevance, workflow)</h3>
+<p><strong>Problem.</strong> Lease approvals were queuing and not completing.</p>
+<p><strong>Cause.</strong> A state transition was missing from the lease state family.</p>
+<p><strong>Fix.</strong> I added the transition and retested, which released the queued approvals.</p>
+<p><strong>Why it happens.</strong> The state transition family defines which actions can move a record out of each state. When an approval fires an action with no transition from the record's current state, the record cannot advance and approvals pile up behind it.</p>
+<h3 id="wrong-right-of-use-asset-values-citi-lease-accounting">5. Wrong right-of-use asset values (Citi, lease accounting)</h3>
+<p><strong>Problem.</strong> Right-of-use asset values were wrong on a set of leases.</p>
+<p><strong>Cause.</strong> Discount rates were applied by lease start date instead of commencement date.</p>
+<p><strong>Fix.</strong> I corrected the rate lookup and recalculated the affected leases.</p>
+<p><strong>Why it happens.</strong> Under ASC 842 the lease liability is discounted at the rate for the lease at commencement, and the right-of-use asset is measured from that liability. When start and commencement dates differ, a lookup keyed on the wrong one can pick a different rate and change both balances.</p>
+<h3 id="custom-workflows-broken-by-the-11.x-upgrade-citi-upgrade">6. Custom workflows broken by the 11.x upgrade (Citi, upgrade)</h3>
+<p><strong>Problem.</strong> Some custom workflows broke when tested under TRIRIGA 11.x.</p>
+<p><strong>Fix.</strong> I retested custom workflows and reports in each environment and rebuilt the ones that broke before the production upgrade.</p>
+<p><strong>Why it happens.</strong> An application upgrade replaces delivered objects, and custom workflows built against the old versions can depend on fields, tasks, or behavior that changed. That is why custom workflows get retested in every environment, not only the first.</p>
+<h3 id="orphaned-leases-and-duplicate-space-assignments-truist-data-quality">7. Orphaned leases and duplicate space assignments (Truist, data quality)</h3>
+<p><strong>Practice.</strong> Before each release I run SQL against the Oracle Database TRIRIGA schema to find orphaned leases and duplicate space assignments.</p>
+<p><strong>Why it matters.</strong> Bulk loads and integrations create records outside the forms where a user would notice a missing link, so a direct schema check catches them before they reach reports or lease accounting.</p>
+<h2 id="integration-landscape">Integration landscape</h2>
+<figure class="diagram"><div class="diagram-scroll"><svg class="dg" viewBox="0 0 760 544" role="img" aria-label="TRIRIGA sits at the center of nine integrations across three clients" xmlns="http://www.w3.org/2000/svg"><defs><marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="dg-head"/></marker></defs><text x="24" y="28" class="dg-title">TRIRIGA sits at the center of nine integrations across three clients</text><text x="24" y="48" class="dg-sub">Each box shows the system, the mechanism and client, and the data carried; arrows show direction</text><text x="24" y="128" class="dg-hdr">INTO TRIRIGA</text><text x="496" y="84" class="dg-hdr">OUT OF TRIRIGA</text><path class="dg-line" d="M264 176H304" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M264 264H304" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M264 352H304" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M264 440H304" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M456 132H496" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M456 220H496" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M456 308H496" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M456 396H496" marker-end="url(#dg-arrow)"/><path class="dg-line" d="M456 484H496" marker-end="url(#dg-arrow)"/><rect x="304" y="96" width="152" height="424" rx="8" class="dg-core"/><text x="380" y="290" text-anchor="middle" class="dg-core-name">IBM TRIRIGA</text><text x="380" y="314" text-anchor="middle" class="dg-data">Real Estate · Lease</text><text x="380" y="332" text-anchor="middle" class="dg-data">Lease Accounting</text><text x="380" y="350" text-anchor="middle" class="dg-data">Space · Facilities</text><rect x="24" y="140" width="240" height="72" rx="8" class="dg-box"/><text x="36" y="164" class="dg-name">Workday</text><text x="36" y="180" class="dg-mech">Java custom task · Elevance</text><text x="36" y="196" class="dg-data">Nightly people and org data</text><rect x="24" y="228" width="240" height="72" rx="8" class="dg-box"/><text x="36" y="252" class="dg-name">Abstracted lease data</text><text x="36" y="268" class="dg-mech">DataConnect staging · Citi</text><text x="36" y="284" class="dg-data">Incomplete rows rejected</text><rect x="24" y="316" width="240" height="72" rx="8" class="dg-box"/><text x="36" y="340" class="dg-name">Regional data files</text><text x="36" y="356" class="dg-mech">Data Integrator · Elevance</text><text x="36" y="372" class="dg-data">Leases, buildings, floors, spaces</text><rect x="24" y="404" width="240" height="72" rx="8" class="dg-box"/><text x="36" y="428" class="dg-name">AutoCAD drawings</text><text x="36" y="444" class="dg-mech">CAD Integrator/Publisher · Truist</text><text x="36" y="460" class="dg-data">Floors, spaces, allocations</text><rect x="496" y="96" width="240" height="72" rx="8" class="dg-box"/><text x="508" y="120" class="dg-name">SAP S/4HANA accounts payable</text><text x="508" y="136" class="dg-mech">Integration Object · Truist</text><text x="508" y="152" class="dg-data">Approved lease payments</text><rect x="496" y="184" width="240" height="72" rx="8" class="dg-box"/><text x="508" y="208" class="dg-name">General ledger</text><text x="508" y="224" class="dg-mech">REST APIs · Elevance</text><text x="508" y="240" class="dg-data">Lease journal entries</text><rect x="496" y="272" width="240" height="72" rx="8" class="dg-box"/><text x="508" y="296" class="dg-name">Bank ledger</text><text x="508" y="312" class="dg-mech">SOAP web services · Citi</text><text x="508" y="328" class="dg-data">Monthly lease journals</text><rect x="496" y="360" width="240" height="72" rx="8" class="dg-box"/><text x="508" y="384" class="dg-name">Workplace app</text><text x="508" y="400" class="dg-mech">OSLC REST API, JSON · Truist</text><text x="508" y="416" class="dg-data">Space and work task data</text><rect x="496" y="448" width="240" height="72" rx="8" class="dg-box"/><text x="508" y="472" class="dg-name">IBM Maximo Manage</text><text x="508" y="488" class="dg-mech">Work orders · Truist</text><text x="508" y="504" class="dg-data">Branch maintenance requests</text></svg></div><figcaption>Integration landscape across Truist Bank, Elevance Health, and Citi Bank</figcaption></figure>
+<p>Four integrations bring data into TRIRIGA and five carry it out. The outbound finance links are where duplicate-posting and reconciliation controls matter most, as case study 1 shows.</p>
+<h2 id="how-i-deliver">How I deliver</h2>
+<p>Across clients my delivery follows the same sequence: agree the design with the business, build the smallest upgrade-safe change, move it as one package, test it with the people who will use it, and watch it after release.</p>
+<ol type="1">
+<li><strong>Requirements.</strong> I gather requirements with corporate real estate, lease administration, finance, and facilities, and settle policy questions before configuration, such as Elevance's lease classification rules. At Citi, changes came through one regional intake queue.</li>
+<li><strong>Design and sign-off.</strong> Each requirement becomes a design for a business object, workflow, or integration. At Truist, corporate real estate signs each design before configuration, and custom Java goes to design review first.</li>
+<li><strong>Standard before custom.</strong> I choose delivered functionality when it meets the need: TRIRIGA Lease Accounting over a separate tool at Elevance, and the standard lease form over a custom object at Truist to protect the MAS upgrade.</li>
+<li><strong>Build.</strong> Extensions stay inside base object families; Java custom tasks handle logic that standard workflow tasks cannot, and UX apps serve mobile and vendor-facing tasks.</li>
+<li><strong>Package.</strong> One OMM package per release with its business objects, forms, queries, and workflows.</li>
+<li><strong>Validate data.</strong> SQL checks before loads and releases, with rejected rows returned to the data owner with the failing field and lease number.</li>
+<li><strong>Test.</strong> SIT and UAT with business users; defects logged with the record, workflow, and expected result. Lease accounting goes live only on finance's sign-off: Elevance held go-live until schedules matched, and Citi's regional finance teams signed off country by country.</li>
+<li><strong>Release and hypercare.</strong> I monitor workflow and integration failures after each release, work incidents in ServiceNow, and recover stuck records with corrected data.</li>
+<li><strong>Handover and growth.</strong> Configuration and support steps go into Confluence, users get short task guides, repeat causes are fixed in the next release, and junior developers get their workflows reviewed before promotion.</li>
+</ol>
+<h2 id="technical-skills-and-education">Technical skills and education</h2>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Tools and technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>IBM TRIRIGA and IWMS</td>
+<td>TRIRIGA Real Estate, Lease Management, Lease Accounting, Space Management, Facilities Management; Archibus</td>
+</tr>
+<tr class="even">
+<td>TRIRIGA builder tools</td>
+<td>Data Modeler, GUI Builder, Workflow Builder, Report Manager, Object Migration Manager (OMM), TRIRIGA UX Framework</td>
+</tr>
+<tr class="odd">
+<td>Integration</td>
+<td>TRIRIGA Integration Object, DataConnect, Data Integrator, OSLC REST API, SOAP web services, REST APIs, JSON</td>
+</tr>
+<tr class="even">
+<td>Programming and data</td>
+<td>Java, JavaScript, SQL, Oracle Database, Microsoft SQL Server</td>
+</tr>
+<tr class="odd">
+<td>Maximo platform</td>
+<td>IBM Maximo Real Estate and Facilities, Maximo Application Suite (MAS), Maximo Manage</td>
+</tr>
+<tr class="even">
+<td>Enterprise systems</td>
+<td>SAP S/4HANA, Workday</td>
+</tr>
+<tr class="odd">
+<td>CAD and floor plans</td>
+<td>AutoCAD, TRIRIGA CAD Integrator/Publisher</td>
+</tr>
+<tr class="even">
+<td>Delivery and support</td>
+<td>Jira, ServiceNow, Confluence, Microsoft Excel</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Education:</strong> Master of Science, Data Science, University of North Texas (May 2026).</p>
+<h2 id="basis-of-this-document">Basis of this document</h2>
+<p>Every project, responsibility, and outcome written in first person comes from my resume; no metrics, certifications, or projects have been added. Paragraphs marked <em>Platform context</em> and the <em>Why it happens</em> notes explain how IBM TRIRIGA and the lease accounting standards work, based on IBM product documentation and published accounting guidance; they describe the platform, not additional work of mine.</p>
+
+  </main>
+</div>
+<footer>Akhil Sai Yalavarthi · IBM TRIRIGA Functional &amp; Technical Consultant</footer>
+</body>
+</html>
